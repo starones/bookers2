@@ -10,15 +10,27 @@
 <% end %>
 <!--ここまで-->
 
-<!--途中-->
-<% @books.each do |book| %>
+<!--投稿一覧-->
 <h1>Books</h1>
 <table>
   <thead>
     <tr>
-      <th>Title<%= book</th>
+      <th></th>
+      <th>Title</th>
       <th>Opinion</th>
     </tr>
   </thead>
 </table>
-ここまで途中
+
+<% @books.each do |book| %>
+<table>
+  <thead>
+    <tr>
+      <th><%= image_tag('no_image.jpg') %></th>
+      <th><%= book.title %></th>
+      <th><%= book.body %></th>
+    </tr>
+  </thead>
+</table>
+<% end %>
+<!--ここまで-->

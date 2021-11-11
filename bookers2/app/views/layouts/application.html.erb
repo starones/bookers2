@@ -10,7 +10,13 @@
   </head>
 
   <body>
+    <li>
+       <%= link_to 'Bookers', root_path %>
+    </li>
     <% if user_signed_in? %>
+    <li>
+      <%= link_to 'Home', user_path(current_user.id) %>
+    </li>
     <li>
       <%= link_to 'Books', books_path %>
     </li>
@@ -19,6 +25,12 @@
     </li>
     <% else %>
     <li>
+       <%= link_to 'Home', root_path %>
+    </li>
+    <li>
+      <%= link_to 'About', homes_about_path %>
+    </li>
+    <li>
       <%= link_to "Sign up", new_user_registration_path %>
     </li>
     <li>
@@ -26,6 +38,12 @@
     </li>
     <% end %>
 
+
     <%= yield %>
+
+        <footr>
+      CopyRight Infratop.inc
+    </footr>
+
   </body>
 </html>
