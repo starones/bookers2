@@ -1,0 +1,20 @@
+<!--useinfo-->
+
+<table>
+  <thead>
+    <tr>
+      <th><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%></th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+    <tr>
+      <th><%= link_to '編集⚙', edit_user_path(current_user) %></th>
+    </tr>
+  </thead>
+</table>
