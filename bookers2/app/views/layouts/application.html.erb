@@ -10,7 +10,7 @@
   </head>
 
   <body>
-
+   <header class="navbar navbar-fixed-top navbar-inverse">
     <li>
        <%= link_to 'Bookers', root_path %>
     </li>
@@ -41,6 +41,11 @@
       <%= link_to "Log in", new_user_session_path %>
     </li>
     <% end %>
+    
+  </header>
+    
+    
+    
     　<!--フラッシュメッセージ-->
   　<% flash. each do |key, value| %>
   　<%= content_tag(:div, value, class: "#{key}") %>

@@ -14,7 +14,6 @@
       <th><%= user.introduction %></th>
     </tr>
     <tr>
-      <th><%= link_to '編集⚙', edit_user_path(current_user) %></th>
+      <th><%= link_to '編集⚙', edit_user_path(user.id) %></th>
     </tr>
-  </thead>
 </table>
