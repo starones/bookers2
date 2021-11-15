@@ -1,11 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
 <!--<h2>User info</h2>-->
 <%= render 'users/list', user: @user %>
 
 <!--<h2>New book</h2>-->
 <%= render 'books/list', book: @book %>
+</div>
 
+<div class="col-md-8 offset-md-1">
+  <table class="table">
 <h2>Books</h2>
-<table>
   <thead>
     <tr>
       <th></th>
@@ -13,19 +18,23 @@
       <th>Opinion</th>
     </tr>
   </thead>
-</table>
+
 
 
 <% @books.each do |book| %>
-<table>
+
   <thead>
     <tr>
         <th><%= link_to user_path(book.user_id) do %>
-        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 20, fallback: "no_image.jpg" %></th>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 20, fallback: "no_image.jpg", size:'50x50' %></th>
       <% end %>
       <th><%= link_to book.title, book_path(book.id) %></th>
       <th><%= book.body %></th>
     </tr>
   </thead>
-</table>
 <% end %>
+</table>
+</div>
+</div>
+</div>
+</div>

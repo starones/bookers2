@@ -1,24 +1,30 @@
-<!--エラー文-->
+<div class="container">
+  <!--エラー文-->
 <% if @book.errors.any? %>
-<%= @book.errors.count %>error prohibited this obj from being saved:
-<% @book.errors.full_messages.each do |message| %>
-<%= message %>
+<div class="text-danger">
+<h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+<ul><% @book.errors.full_messages.each do |message| %>
+<li><%= message %></li>
 <% end %>
+</ul>
+</div>
 <% end %>
 <!--ここまで-->
-
-
+<div class="row">
+   <div class="col-md-3">
 
 <!--<h2>User info</h2>-->
 <%= render 'users/list', user: @user %>
 
 <!--<h2>New book</h2>-->
 <%= render 'books/list', book: @book %>
-
+</div>
 
 <!--投稿一覧-->
+<div class="col-md-8 offset-md-1">
+  <table class="table">
 <h1>Books</h1>
-<table>
+
   <thead>
     <tr>
       <th></th>
@@ -26,20 +32,25 @@
       <th>Opinion</th>
     </tr>
   </thead>
-</table>
+
 
 
 <% @books.each do |book| %>
-<table>
+
   <thead>
     <tr>
         <th><%= link_to user_path(book.user_id) do %>
-        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 40, fallback: "no_image.jpg" %></th>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></th>
       <% end %>
       <th><%= link_to book.title, book_path(book.id) %></th>
       <th><%= book.body %></th>
     </tr>
   </thead>
-</table>
 <% end %>
+</table>
 <!--ここまで-->
+
+
+</div>
+</div>
+</div>

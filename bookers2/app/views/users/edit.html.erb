@@ -1,22 +1,47 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm-8 px-sm-0 mx-auto">
+
+
+  <h2>User info</h2>
+
 <!--エラー文-->
+
 <% if @user.errors.any? %>
-<%= @user.errors.count %>error prohibited this obj from being saved:
+<div class="text-danger">
+<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
 <% @user.errors.full_messages.each do |message| %>
-<%= message %>
+・<%= message %>
 <% end %>
+</div>
 <% end %>
+
 <!--ここまで-->
 
-<h2>User info</h2>
 
 <%= form_with model:@user, local:true do |f| %>
-<div class="user-name">Name</div>
-    <%= f.text_field :name %>
-  <div class="user-edit-image">Image</div>
+<div class="form-group">
+<div class="pb-2">Name</div>
+    <%= f.text_field :name, class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+  <div class="pb-2">Image</div>
     <%= f.attachment_field :profile_image %>
-  <div class="form-body">Introduction</div>
-    <%= f.text_area :introduction %><br>
+    </div>
+
+
+  <div class="pb-2">Introduction</div>
+    <%= f.text_area :introduction, class:"form-control input-lg" %><br>
+
+
+
   <div class="upload">
-    <%= f.submit " Update User" %>
+    <%= f.submit " Update User", class:"btn btn-secondary" %>
   </div>
+
 <% end %>
+
+</div>
+</div>
+</div>
