@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
 # 　新規登録後とログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    users_path
+    user_path(@user.id)
   end
 
   def after_sign_in_path_for(resource)
-  users_path
+  user_path(@user.id)
   end
 # ここまで
 
